@@ -1,6 +1,9 @@
 import './App.css'
+import { Provider } from 'react-redux'
 import Child1 from './components/Child1'
 import Child2 from './components/Child2'
+import User from './components/User'
+import store from './store'
 
 const containerStyle= {
   border: '1px solid black',
@@ -11,12 +14,15 @@ const containerStyle= {
 
 function App() {
   return (
-    <div style={containerStyle}>
-      <div style={{ display: 'flex' }}>
-        <Child1 />
-        <Child2 />
+    <Provider store={store}>
+      <div style={containerStyle}>
+        <div style={{ display: 'flex' }}>
+          <Child1 />
+          <Child2 />
+        </div>
+        <User />
       </div>
-    </div>
+    </Provider>
   )
 }
 
@@ -39,10 +45,14 @@ export default App
     - https://redux.js.org/assets/images/ReduxDataFlowDiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif
 
   - Setup
-    0. Install redux and react-redux [DONE]
     1. React app [DONE]
-    2. Setup redux store (w/ reducer functions) [DONE]
-    3. Connecting react with redux
-      - Subscribe
-      - Dispatch action
+    2. Install redux and react-redux [DONE]
+    3. Setup redux store (w/ reducer functions) [DONE]
+    4. Connecting react with redux, flow:
+      - "Provider" component wrapper + "store" prop
+      - Components subscribe to state (useSelector)
+      - Components dispatch actions (useDispatch)
+
+  - Additional notes:
+    - [import store from './store/index'] can also be minimized as [import store from './store']
 */

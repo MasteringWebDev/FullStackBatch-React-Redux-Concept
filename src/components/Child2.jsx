@@ -1,3 +1,6 @@
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement } from '../store/actions/counter'
+
 const containerStyle= {
   border: '1px solid black',
   textAlign: 'center',
@@ -7,11 +10,14 @@ const containerStyle= {
 }
 
 function Child2() {
+  const count = useSelector((store) => store.counter.count)
+  const dispatch = useDispatch()
+
   return (
     <div style={containerStyle}>
-      <p style={{ fontSize: '4em' }}>{}</p>
+      <p style={{ fontSize: '4em' }}>{count}</p>
       <button
-        onClick={() => {}}
+        onClick={() => dispatch(decrement())}
       >DECREMENT</button>
     </div>
   );
