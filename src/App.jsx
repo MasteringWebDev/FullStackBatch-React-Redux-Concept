@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import Child1 from './components/Child1'
 import Child2 from './components/Child2'
 import User from './components/User'
+import Products from './components/Products'
 import store from './store'
 
 const containerStyle= {
@@ -21,6 +22,7 @@ function App() {
           <Child2 />
         </div>
         <User />
+        <Products />
       </div>
     </Provider>
   )
@@ -55,4 +57,10 @@ export default App
 
   - Additional notes:
     - [import store from './store/index'] can also be minimized as [import store from './store']
+
+  # Redux Thunk
+    - Middleware for redux
+    - Handle async tasks
+    - In simple redux: disptach() can only dispatch action "objects"
+    - In redux-thunk: dispatch() can have functions as arguments, those functions further have access to "state" and "dispatch" using which it can dispatch other actions after async operations
 */

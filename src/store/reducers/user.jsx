@@ -10,7 +10,7 @@ const initialState = {
   batch: 3
 }
 
-function countReducer(state = initialState, action) {
+function userReducer(state = initialState, action) {
   switch(action.type) {
     case UPDATE_NAME:
       return {
@@ -32,4 +32,4 @@ function countReducer(state = initialState, action) {
   }
 }
 
-export default countReducer
+export default userReducer
